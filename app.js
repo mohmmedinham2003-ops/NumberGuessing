@@ -11,7 +11,6 @@ function clickonGuessActionbtn() {
     let textInput = guessNumber.value;
     heading = document.getElementById("heading");
     
-    while(attempt == 0){
     if (randomNum > textInput) {
         heading.innerHTML = "Guessed number is less than the actual Number you have";
         //console.log("Guessed number is less than the actual Number you have");
@@ -33,8 +32,7 @@ function clickonGuessActionbtn() {
         heading.innerHTML = "Game over buddy";
 
     }
-    attempt--;
 
-    }
+    
 
 }
