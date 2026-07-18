@@ -2,30 +2,38 @@ let num = Math.random() * 10 + 1;
 randomNum = Math.floor(num);
 console.log(randomNum);
 
-let attempt = 5;
+let attempt = 3;
 
 
 function clickonGuessActionbtn() {
     let guessNumber = document.getElementById("guessNumber");
 
+    let textInput = guessNumber.value;
+    heading = document.getElementById("heading");
+    
+    while(attempt == 0){
+    if (randomNum > textInput) {
+        heading.innerHTML = "Guessed number is less than the actual Number you have";
+        //console.log("Guessed number is less than the actual Number you have");
 
+    } else if (randomNum < textInput) {
+        heading.innerHTML = "Guessed number is higher than the actual Number you have"
+        //console.log("Guessed number is higher than the actual Number you have");
 
-    for (let i = attempt; i >= 0; i--) {
+    } else if (randomNum == textInput) {
+        heading.innerHTML = "Congratulations you have guessed the correct number";
+        //console.log("Congratulations you have guessed the correct number");
+        Swal.fire({
+        title: "Good job!",
+        text: "You won bro!",
+        icon: "success"
+    });
 
-        if (randomNum > guessNumber.value) {
-            console.log("Guessed number is less than the actual Number you have");
-        } else if (randomNum < guessNumber.value) {
-            console.log("Guessed number is higher than the actual Number you have");
+    } else {
+        heading.innerHTML = "Game over buddy";
 
-        } else if(randomNum == guessNumber.value) {
-            console.log("Congratulations you have guessed the correct number");
-
-        }else{
-        console.log("Game over buddy");
-
-        }
-
-        console.log("attempts left" + attempt);
+    }
+    attempt--;
 
     }
 
