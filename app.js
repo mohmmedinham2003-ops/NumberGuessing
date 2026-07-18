@@ -1,24 +1,45 @@
 let num = Math.random() * 10 + 1;
-randomNum = Math.floor(num);
+let randomNum = Math.floor(num);
+
 console.log(randomNum);
 
-let attempt = 1;
-const maxAttemp = 3;
+let attempt = 0;
+const maxAttempt = 3;
+
+
 function clickonGuessActionbtn() {
+
     let guessNumber = document.getElementById("guessNumber");
+    let textInput = Number(guessNumber.value);
 
-    let textInput = guessNumber.value;
-    heading = document.getElementById("heading");
-    if (attempt < maxAttemp) {
+    let heading = document.getElementById("heading");
+
+
+    if (attempt < maxAttempt) {
+
         attempt++;
+
         if (randomNum > textInput) {
-            heading.innerHTML = `Guessed number is less than the actual Number you have. remaining attemt ${maxAttemp - attempt}  `;
 
-        } else if (randomNum < textInput) {
-            heading.innerHTML = `Guessed number is higher than the actual Number you have. remaining attemt ${maxAttemp - attempt}  `;
+            heading.innerHTML =
+            `Guessed number is less than the actual number.
+            <br>Attempt Left: ${maxAttempt - attempt}`;
 
-        } else {
-            heading.innerHTML = "Congratulations you have guessed the correct number";
+        } 
+        
+        else if (randomNum < textInput) {
+
+            heading.innerHTML =
+            `Guessed number is higher than the actual number.
+            <br>Attempt Left: ${maxAttempt - attempt}`;
+
+        } 
+        
+        else {
+
+            heading.innerHTML =
+            "Congratulations! You guessed the correct number";
+
             Swal.fire({
                 title: "Good job!",
                 text: "You won bro!",
@@ -26,15 +47,19 @@ function clickonGuessActionbtn() {
             });
 
         }
-    } else {
-        heading.innerHTML = "Game over buddy";
+
+    } 
+    
+    else {
+
+        heading.innerHTML = "Game Over Buddy!";
+
         Swal.fire({
             icon: "error",
-            title: "Oops... attemps are over",
-            footer: "<a href=\"#\">Why do I have this issue?</a>"
+            title: "Oops...",
+            text: "Attempts are over"
         });
 
     }
-
 
 }
