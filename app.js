@@ -12,16 +12,13 @@ function clickonGuessActionbtn() {
     if (attempt < maxAttemp) {
         attempt++;
         if (randomNum > textInput) {
-            heading.innerHTML = "Guessed number is less than the actual Number you have";
-            //console.log("Guessed number is less than the actual Number you have");
+            heading.innerHTML = `Guessed number is less than the actual Number you have. remaining attemt ${maxAttemp - attempt}  `;
 
         } else if (randomNum < textInput) {
-            heading.innerHTML = "Guessed number is higher than the actual Number you have"
-            //console.log("Guessed number is higher than the actual Number you have");
+            heading.innerHTML = `Guessed number is higher than the actual Number you have. remaining attemt ${maxAttemp - attempt}  `;
 
         } else {
             heading.innerHTML = "Congratulations you have guessed the correct number";
-            //console.log("Congratulations you have guessed the correct number");
             Swal.fire({
                 title: "Good job!",
                 text: "You won bro!",
