@@ -2,7 +2,7 @@ let num = Math.random() * 10 + 1;
 randomNum = Math.floor(num);
 console.log(randomNum);
 
-let attempt = 0;
+let attempt = 1;
 const maxAttemp = 3;
 function clickonGuessActionbtn() {
     let guessNumber = document.getElementById("guessNumber");
