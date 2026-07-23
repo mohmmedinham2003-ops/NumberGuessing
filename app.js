@@ -22,35 +22,25 @@ function clickonGuessActionbtn() {
             attempt++;
 
             heading.innerHTML =
-            `Guessed number is less than the actual number.
+                `Guessed number is less than the actual number.
             <br>Attempt Left: ${maxAttempt - attempt}`;
 
-        } 
-        
+        }
+
         else if (randomNum < textInput) {
 
             attempt++;
 
             heading.innerHTML =
-            `Guessed number is higher than the actual number.
+                `Guessed number is higher than the actual number.
             <br>Attempt Left: ${maxAttempt - attempt}`;
 
-        } else if(randomNum === textInput){
-             heading.innerHTML ="Sorry all Attepts are over";
-
-            Swal.fire({
-               icon: "error",
-                title: "Oops..."
-            });
-
-            return;
-
         }
-        
+
         else {
 
             heading.innerHTML =
-            "Congratulations! You guessed the correct number";
+                "Congratulations! You guessed the correct number";
 
             Swal.fire({
                 title: "Good job!",
@@ -62,7 +52,18 @@ function clickonGuessActionbtn() {
         }
 
 
-       
+
+    }
+    if(attempt === maxAttempt) {
+        heading.innerHTML = "Sorry all Attempts are over";
+
+        Swal.fire({
+            icon: "error",
+            title: "Oops..."
+        });
+
+        return;
+
     }
 
 }
