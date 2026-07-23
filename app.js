@@ -3,7 +3,7 @@ let randomNum = Math.floor(num);
 
 console.log(randomNum);
 
-let attempt = 0;
+let attempt = 1;
 const maxAttempt = 3;
 
 
@@ -15,7 +15,7 @@ function clickonGuessActionbtn() {
     let heading = document.getElementById("heading");
 
 
-    if (attempt < maxAttempt) {
+    if (attempt <= maxAttempt) {
 
         attempt++;
 
