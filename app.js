@@ -36,13 +36,11 @@ function clickonGuessActionbtn() {
             <br>Attempt Left: ${maxAttempt - attempt}`;
 
         } else if(randomNum === textInput){
-             heading.innerHTML =
-            "Congratulations! You guessed the correct number";
+             heading.innerHTML ="Sorry all Attepts are over";
 
             Swal.fire({
-                title: "Good job!",
-                text: "You won bro!",
-                icon: "success"
+               icon: "error",
+                title: "Oops..."
             });
 
             return;
