@@ -1,8 +1,3 @@
-let num = Math.random() * 10 + 1;
-let randomNum = Math.floor(num);
-
-console.log(randomNum);
-
 let attempt = 0;
 const maxAttempt = 3;
 
@@ -17,9 +12,9 @@ function clickonGuessActionbtn() {
 
     if (attempt < maxAttempt) {
 
-        ++attempt;
-
         if (randomNum > textInput) {
+
+            attempt++;
 
             heading.innerHTML =
             `Guessed number is less than the actual number.
@@ -28,6 +23,8 @@ function clickonGuessActionbtn() {
         } 
         
         else if (randomNum < textInput) {
+
+            attempt++;
 
             heading.innerHTML =
             `Guessed number is higher than the actual number.
@@ -46,19 +43,21 @@ function clickonGuessActionbtn() {
                 icon: "success"
             });
 
+            return;
         }
 
-    } 
-    
-    else {
 
-        heading.innerHTML = "Game Over Buddy!";
+        // Check after increasing attempt
+        if (attempt === maxAttempt) {
 
-        Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Attempts are over"
-        });
+            heading.innerHTML = "Game Over Buddy!";
+
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: `The number was ${randomNum}`
+            });
+        }
 
     }
 
